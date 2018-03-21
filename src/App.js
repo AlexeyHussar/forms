@@ -5,7 +5,9 @@ import './App.css';
 
 const App = () => (
   <MuiThemeProvider>
-    <Form />
+    <div className='primary-container'>
+      <Form />      
+    </div>
   </MuiThemeProvider>
 );
 

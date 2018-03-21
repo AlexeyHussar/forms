@@ -3,7 +3,7 @@ import { Card } from 'material-ui/Card';
 import { TextField } from 'material-ui';
 
 export const FormHeader = () => (
-  <Card>
+  <Card className='card'>
     <TextField name='formName'
       defaultValue='Новая форма'
       hintText='Имя формы'

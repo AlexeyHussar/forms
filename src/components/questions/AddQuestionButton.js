@@ -1,8 +1,11 @@
 import React from 'react';
-import FlatButton from 'material-ui/FlatButton';
+import IconButton from 'material-ui/IconButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
 export const AddQuestionButton = ({ addQuestion }) => (
-  <FlatButton label='Добавить вопрос'
-    onClick={ () => addQuestion() }
-  />
+  <IconButton tooltip='Добавить вопрос'
+    onClick={ () => addQuestion() } >
+    <ContentAdd 
+    className='add-question-button' />
+  </IconButton>
 );

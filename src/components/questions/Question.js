@@ -4,14 +4,15 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
-import Radiobutton from 'material-ui/RadioButton'
+import RadioButton from 'material-ui/RadioButton'
 import IconButton from 'material-ui/IconButton';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
+import { RadioList } from './questionDetail/RadioList';
 
-const COMP_MAP = {
-  0: props => <Radiobutton { ...props } />,
-  1: props => <Checkbox { ...props } />,
-  2: props => <TextField name='answer' { ...props } />
+const ANSWER_TYPES = {
+  0: ({ answers, addAnswer, id }) => <RadioList answers={ answers } addAnswer={ addAnswer } id={ id } />,
+  1: () => <Checkbox />,
+  2: () => <TextField />
 };
 
 export class Question extends Component {
@@ -24,14 +25,14 @@ export class Question extends Component {
 
   render() {
 
-    const { deleteQuestion, id } = this.props;
+    const { deleteQuestion, id, answers, addAnswer } = this.props;
 
     return (
-      <Card>
-        <div>
+      <Card className='card'>
+        <div className='question-left'>
           <TextField hintText='Вопрос' /><br/>
-          { COMP_MAP[this.state.value] && COMP_MAP[this.state.value]() }
-         </div>
+          { ANSWER_TYPES[this.state.value] && ANSWER_TYPES[this.state.value]() }
+        </div>
         <div>
           <DropDownMenu
             value={ this.state.value }
@@ -41,7 +42,7 @@ export class Question extends Component {
             <MenuItem value={ 0 }
               primaryText='Один из списка' />
             <MenuItem value={ 1 }
-              primaryText='Несколько из списка' />
+              primaryText='Раскрывающийся список' />
             <MenuItem value={ 2 }
               primaryText='Текст' />              
           </DropDownMenu>

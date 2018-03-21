@@ -1,12 +1,9 @@
 import React from 'react';
-//import { QuestionList } from './QuestionList';
 import { Question } from './Question';
 import { AddQuestionButton } from './AddQuestionButton';
 
-export const QuestionHolder = ({ questions, addQuestion, deleteQuestion }) => (
+export const QuestionHolder = ({ questions, addQuestion, deleteQuestion, addAnswer }) => (
   <div>
-{/*     <QuestionList questions={ questions }
-      deleteQuestion={ () => deleteQuestion() } /> */}
     <div>
       { questions.length
         ? ( <ul>
@@ -14,7 +11,9 @@ export const QuestionHolder = ({ questions, addQuestion, deleteQuestion }) => (
               <li key={ question.id }>
                 <Question
                   id={ question.id }
-                  deleteQuestion={ () => deleteQuestion(question.id) } />
+                  deleteQuestion={ () => deleteQuestion(question.id) }
+                  addAnswer={ () => addAnswer(question.id) }
+                  answers={ question.answers } />
               </li>
             )) }
           </ul> )
