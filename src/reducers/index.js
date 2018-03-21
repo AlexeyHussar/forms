@@ -24,8 +24,8 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         questions: state.questions
-          .map(q => q.id === action.payload.id
-            ? q.answers === [q.answers, ...action.payload.answer]
+          .map(q => q.id === action.id
+            ? q.answers.concat(action.payload)
             : q
           )
       };
@@ -35,3 +35,4 @@ const appReducer = (state = initialState, action) => {
 };
 
 export default appReducer;
+

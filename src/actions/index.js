@@ -16,8 +16,8 @@ export const deleteQuestion = (id) => ({
 
 export const addAnswer = (id) => ({
   type: ADD_ANSWER,
-  payload: {
-    id,
-    answer: 'item'
-  }
+  id,
+  payload: [
+    { id: v4() }
+  ]
 });
