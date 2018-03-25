@@ -3,20 +3,18 @@ import Card from 'material-ui/Card/Card';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from 'material-ui/TextField';
-import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
-import { RadioList } from './questionDetail/RadioList';
+import RadioList from './questionDetail/RadioList';
+import DropDownList from './questionDetail/DropDownList';
 
-const ANSWER_TYPES = {
-  0: ({ answers, addAnswer, id }) => <RadioList 
-    answers={ answers }
-    addAnswer={ () => addAnswer(id) } 
-    id={ id } />,
-  1: () => <Checkbox />,
-  2: () => <TextField 
-    name='answerField'
-    hintText='Короткий ответ' />
+ const ANSWER_TYPES = {
+  0: ({ answers, addAnswer, id }) => <RadioList answers={ answers }
+      addAnswer={ () => addAnswer(id) } id={ id } />,
+  1: ({ answers, addAnswer, id }) => <DropDownList answers={ answers }
+      addAnswer={ () => addAnswer(id) } id={ id } />,
+  2: () => <TextField name='answerField'
+      hintText='Короткий ответ' />
 };
 
 export class Question extends Component {
@@ -31,20 +29,20 @@ export class Question extends Component {
 
     const { deleteQuestion, id, answers, addAnswer } = this.props;
 
-    const renderAnswer = () => {
+     const renderAnswer = () => {
       const AnswerComp = ANSWER_TYPES[this.state.value];
 
       return AnswerComp 
       ? <AnswerComp answers={ answers } addAnswer={ () => addAnswer(id) } id={ id } />
       : null;
-    };
+    }; 
 
     return (
       <Card className='card'>
         <div className='question-left'>
           <TextField hintText='Вопрос' /><br/>
           { renderAnswer() }
-        </div>
+        </div> 
         <div>
           <DropDownMenu
             value={ this.state.value }

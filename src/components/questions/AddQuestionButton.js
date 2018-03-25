@@ -6,6 +6,6 @@ export const AddQuestionButton = ({ addQuestion }) => (
   <IconButton tooltip='Добавить вопрос'
     onClick={ () => addQuestion() } >
     <ContentAdd 
-    className='add-question-button' />
+      className='add-question-button' />
   </IconButton>
 );

@@ -2,7 +2,7 @@ import React from 'react';
 import { Question } from './Question';
 import { AddQuestionButton } from './AddQuestionButton';
 
-export const QuestionHolder = ({ questions, addQuestion, deleteQuestion, addAnswer }) => (
+export const QuestionHolder = ({ questions, addQuestion, deleteQuestion, addAnswer, deleteAnswer }) => (
   <div>
     <div>
       { questions.length
@@ -13,6 +13,7 @@ export const QuestionHolder = ({ questions, addQuestion, deleteQuestion, addAnsw
                   id={ question.id }
                   deleteQuestion={ () => deleteQuestion(question.id) }
                   addAnswer={ () => addAnswer(question.id) }
+                  deleteAnswer={ () => deleteAnswer(question.id) }
                   answers={ question.answers } />
               </li>
             )) }
