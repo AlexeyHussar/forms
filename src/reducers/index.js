@@ -1,5 +1,34 @@
-import { ADD_QUESTION, DELETE_QUESTION, ADD_ANSWER, DELETE_ANSWER } from '../actions/actionTypes';
+import { 
+  ADD_QUESTION,
+  DELETE_QUESTION,
+  ADD_ANSWER,
+  DELETE_ANSWER,
+  /* ADD_LIST_ANSWER */
+} from '../actions/actionTypes';
 
+/* const addListAnswer = (state, action) => {
+  const index = state.questions
+    .findIndex(q => q.id === action.payload.id);
+
+  const updated = {
+    ...state.questions[index],
+    answers: { 
+      ...state.questions[index].answers,
+      listAnswers: [
+        ...listAnswers,
+        action.payload.answer
+      ]
+    }
+  };
+
+  return [
+    ...state.questions.slice(0, index),
+    updated,
+    ...state.questions.slice(index + 1)
+  ];
+
+};
+ */
 const initialState = {
   questions: []
 };

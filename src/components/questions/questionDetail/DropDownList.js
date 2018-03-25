@@ -24,7 +24,7 @@ const DropDownList = ({ answers, addAnswer, deleteAnswer, id }) => (
         </ListItem>)
       ) }
     </List>
-    <FlatButton label='Добавить вопрос' onClick={ () => addAnswer(id) }/>        
+    <FlatButton label='Добавить ответ' onClick={ () => addAnswer(id) }/>        
   </div>
 );
 

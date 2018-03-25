@@ -39,27 +39,29 @@ export class Question extends Component {
 
     return (
       <Card className='card'>
-        <div className='question-left'>
-          <TextField hintText='Вопрос' /><br/>
-          { renderAnswer() }
-        </div> 
-        <div>
-          <DropDownMenu
-            value={ this.state.value }
-            onChange={ this.handleChange }
-            anchorOrigin={{ vertical: 'center', horizontal: 'left' }}>
-              <MenuItem value={ 0 }
-                primaryText='Один из списка' />
-              <MenuItem value={ 1 }
-                primaryText='Раскрывающийся список' />
-              <MenuItem value={ 2 }
-                primaryText='Текст' />              
-          </DropDownMenu>
+        <div className='question'>
+          <div className='question-left'>
+            <TextField hintText='Вопрос' /><br/>
+            { renderAnswer() }
+          </div> 
+          <div className='question-right'>
+            <DropDownMenu
+              value={ this.state.value }
+              onChange={ this.handleChange }
+              anchorOrigin={{ vertical: 'center', horizontal: 'left' }}>
+                <MenuItem value={ 0 }
+                  primaryText='Один из списка' />
+                <MenuItem value={ 1 }
+                  primaryText='Раскрывающийся список' />
+                <MenuItem value={ 2 }
+                  primaryText='Текст' />              
+            </DropDownMenu>
+          </div>
+          <IconButton tooltip='Удалить вопрос'
+            onClick={ () => deleteQuestion(id) }>
+              <ActionDelete />
+          </IconButton>
         </div>
-        <IconButton tooltip='Удалить вопрос'
-          onClick={ () => deleteQuestion(id) }>
-            <ActionDelete />
-        </IconButton>
       </Card>
     );
   };
