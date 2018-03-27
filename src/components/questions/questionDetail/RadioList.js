@@ -45,7 +45,7 @@ class RadioList extends Component {
                 </IconButton>
             }>
               <TextField name='questionField'
-                hintText='Вопрос'/>
+                hintText='Ответ'/>
             </ListItem>)
           ) }
         </List>

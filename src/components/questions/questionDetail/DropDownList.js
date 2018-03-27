@@ -8,7 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 
 const DropDownList = ({ answers, addAnswer, deleteAnswer, id }) => (
-  <div>
+  <div className='drop-down-list'>
     <List>
       { answers.map(a => (
         <ListItem
@@ -20,7 +20,7 @@ const DropDownList = ({ answers, addAnswer, deleteAnswer, id }) => (
             </IconButton>
         }>
           <TextField name='questionField'
-            hintText='Вопрос'/>
+            hintText='Ответ'/>
         </ListItem>)
       ) }
     </List>
