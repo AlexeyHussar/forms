@@ -13,11 +13,11 @@ import ContentClear from 'material-ui/svg-icons/content/clear';
 class RadioList extends Component {
 
   state = {
-    radioValue: false
+    radioValue: ''
   };
 
-  onChangeRadio = (evt) => this.setState({ 
-    
+  onChangeRadio = (boxId) => this.setState({ 
+    radioValue: boxId
   });
 
   render() {
@@ -32,8 +32,9 @@ class RadioList extends Component {
               key={ a.id }
               leftCheckbox={
                 <Checkbox
-                  onCheck={ this.onChangeRadio }
-                  checked={ false }
+                  value={ a.id }
+                  onCheck={ () => this.onChangeRadio(a.id) }
+                  checked={ this.state.radioValue === a.id }
                   checkedIcon={ <RadioChecked /> }
                   uncheckedIcon={ <RadioUnchecked /> }
                 /> }
